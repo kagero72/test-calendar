@@ -43,6 +43,10 @@ main{
   width: 60%;
 }
 
+.ta-l{
+  text-align: left;
+}
+
 .fc-day {
   background-color: #efefef;
 }

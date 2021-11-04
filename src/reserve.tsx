@@ -134,7 +134,7 @@ const Reserve = () => {
       <Container>
         <Form>
           <Form.Label className="mt-3 mb-2">
-            予約情報
+            時間情報
           </Form.Label>
 
           <FloatingLabel label="時間帯" className="mb-2">
@@ -147,11 +147,14 @@ const Reserve = () => {
             </Form.Select>
           </FloatingLabel>
 
+          <Form.Label className="mt-3 mb-2">
+            人数情報
+          </Form.Label>
           <Row>
             {
               ["大人","シニア","小学生","〜小学生","〜2歳","0歳"].map((value, index) => 
                 <>
-                  <FloatingLabel key={index} label={value} as={Col} sm={2} className="mb-2">
+                  <FloatingLabel key={index} label={value} as={Col} sm={4} className="mb-2">
                     <Form.Select className={"people-select " + (people[index] === 0 ? "bg-white" : "bg-green")} onChange={event => onChangePeople(event, index)}>
                       {
                         [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].map((num, index) =>
@@ -165,11 +168,10 @@ const Reserve = () => {
             }
           </Row>
           {
-            <>
-              合計：{ peopleSum }名
-            </>
+            <div className="ta-l">
+              合計：{peopleSum}名
+            </div>
           }
-          <br/>
 
           <Form.Label className="mt-3 mb-2">
             お客様情報
