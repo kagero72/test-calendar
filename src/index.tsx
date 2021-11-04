@@ -5,7 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
+  
   <React.StrictMode>
+    <link href='fullcalendar/main.css' rel='stylesheet' />
+    <link href='fullcalendar/core/main.css' rel='stylesheet' />
+    <link href='fullcalendar/daygrid/main.css' rel='stylesheet' />
+    <link href='calendar.css' rel='stylesheet' />
+
+    <script src='fullcalendar/main.js'></script>
     <App />
   </React.StrictMode>,
   document.getElementById('root')

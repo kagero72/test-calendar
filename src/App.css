@@ -36,3 +36,46 @@
     transform: rotate(360deg);
   }
 }
+
+main{
+  margin: auto;
+  padding: auto;
+  width: 60%;
+}
+
+.fc-day {
+  background-color: #efefef;
+}
+.fc-day-sat {
+  background-color: #c1e4e9;
+}
+.fc-day-sun {
+  background-color: #f6bfbc;
+}
+
+.fc-daygrid-day-number {
+  color: #555555;
+  text-decoration: solid;
+}
+.fc-col-header-cell-cushion {
+  color: #555555;
+  text-decoration: solid;
+}
+
+.fc-event-title {
+  text-align: center;
+}
+
+.form-label{
+  font-size: large;
+  vertical-align: middle;
+  margin-bottom: 0px;
+}
+
+.bg-white{
+  background-color: #ffffff;
+}
+
+.bg-green{
+  background-color: #d7ffd7;
+}
