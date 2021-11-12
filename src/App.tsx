@@ -7,7 +7,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Calendar from './calendar';
-import Reserve from './reserve';
+// import Reserve from './reserve';
 
 import './App.css';
 
@@ -37,7 +37,7 @@ function App() {
       <main>
         <h2>Full Calendar</h2>
         <Calendar></Calendar>
-        <Reserve></Reserve>
+        {/* <Reserve></Reserve> */}
       </main>
       <br/>
     </div>

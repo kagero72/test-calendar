@@ -5,65 +5,6 @@ import React from 'react';
 
 const Reserve = () => {
 
-  // const [peopleSum, setPeopleSum] = useState(0)
-
-  // const UpdatePeopleSum = (e:any) => {
-  //   console.log(e)
-  // }
-
-  // const onSubmit = () => {
-  //   const timeSelect = document.getElementById("time-select");
-  //   const peoplesSelect = document.getElementsByClassName("people-select");
-
-  //   const nameSelect = document.getElementById("name-select");
-  //   const furiganaSelect = document.getElementById("furigana-select");
-  //   const prifectureSelect = document.getElementById("prifecture-select");
-  //   const telSelect = document.getElementById("tel-select");
-  //   const emailSelect = document.getElementById("email-select");
-
-  //   // timeSelect.value
-
-  //   // const element: HTMLInputElement = (HTMLInputElement)document.getElementById(‘hoge');
-  //   // const value: string = element.value;
-
-	// 	// const image = document.getElementsByClassName("form-control-file")[0].files[0];
-
-	// 	// const formData = new FormData();
-	// 	// formData.append('name', name);
-	// 	// formData.append('image', image);
-
-	// 	// if(!name) {alert("名前が入力されていません"); return}
-  // }
-
-  // インターフェース
-  // const interface IData {
-  //   userName: string
-  //   mailAddress: string
-  // }
-  // // 初期データ
-  // const initialData: IData = {
-  //   userName: '',
-  //   mailAddress: '',
-  // }
-
-  // interface IData{
-  //   time:number;
-  //   people:number;
-  //   prefecture:number;
-  //   name:string;
-  //   tel:string;
-  //   email:string;
-  // }
-
-  // class Data implements IData{
-  //   time = 0;
-  //   people = 0;
-  //   prefecture = 0;
-  //   name = "";
-  //   tel = "";
-  //   email = "";
-  // }
-
   // データ
   const [time, setTime] = useState(0);
   const [people, setPeople] = useState([0,0,0,0,0,0]);
@@ -124,11 +65,6 @@ const Reserve = () => {
     console.log(email)
   }
 
-//   const _onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-//     const value = event.target.value;
-//     setData({ ...data, email: value });
-// }
-
   return(
     <>
       <Container>
@@ -152,7 +88,7 @@ const Reserve = () => {
           </Form.Label>
           <Row>
             {
-              ["大人","シニア","小学生","〜小学生","〜2歳","0歳"].map((value, index) => 
+              ["大人","シニア","小学生","〜小学生","〜2歳","0歳"].map((value, index) =>
                 <>
                   <FloatingLabel key={index} label={value} as={Col} sm={4} className="mb-2">
                     <Form.Select className={"people-select " + (people[index] === 0 ? "bg-white" : "bg-green")} onChange={event => onChangePeople(event, index)}>
@@ -170,6 +106,7 @@ const Reserve = () => {
           {
             <div className="ta-l">
               合計：{peopleSum}名
+              { peopleSum >= 20 && <strong className="tc-r">20名様以上のご予約はお電話にてお願いいたします。</strong> }
             </div>
           }
 
@@ -186,7 +123,7 @@ const Reserve = () => {
           </FloatingLabel>
 
           <FloatingLabel label="お住まいの都道府県" className="mb-2">
-           <Form.Select className={"prefecture-select " + (prefecture === 0 ? "bg-white" : "bg-green")} onChange={event => onChangePreference(event)} placeholder="prefecture">
+            <Form.Select className={"prefecture-select " + (prefecture === 0 ? "bg-white" : "bg-green")} onChange={event => onChangePreference(event)} placeholder="prefecture">
               <option key="0" value="0">選択してください</option>
               <option key="1" value="1">北海道</option>
               <option key="2" value="2">青森県</option>
