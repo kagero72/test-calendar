@@ -22,11 +22,6 @@ const Calendar = () => {
   const [email, setEmail] = useState("");
 
 
-  // onChange で取得
-  // const onChangeDay = (event: React.ChangeEvent<HTMLSelectElement>) => {
-  //   const value = event.target.value;
-  //   // setDate();
-  // }
   const onChangeTime = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
     setTime(Number(value));
@@ -98,22 +93,17 @@ const Calendar = () => {
       {
         title: '  空きあり  ',
         color: '#cc0000',
-        // color: '#33cc33',
         start: '',
-        // display: 'background'
       },
       {
         title: '    満員    ',
         color: '#999999',
-        // color: '#ff6666',
         start: '',
-        // display: 'background'
       },
       {
         title: '   定休日   ',
         color: '#999999',
         start: '',
-        // display: 'background'
       },  
     ]
 
@@ -130,28 +120,16 @@ const Calendar = () => {
     reservations.push(GetVacantInfo(vacancyCodes[i], day));
   }
 
-  let prev_button = document.getElementsByClassName('fc-prev-button')
-  let prev_image = document.createElement("img")
-  prev_image.setAttribute("src", "../public/main_view_arw1.png")
+  // let prev_button = document.getElementsByClassName('fc-prev-button')
+  // let prev_image = document.createElement("img")
+  // prev_image.setAttribute("src", "../public/main_view_arw1.png")
   // let prev_button_element = prev_button[0] as HTMLElement
   // prev_button_element.appendChild(prev_image)
 
-  let next_button = document.getElementsByClassName('fc-next-button')[0]
-  let next_image = document.createElement("img")
-  next_image.setAttribute("src", "../public/main_view_arw2.png")
+  // let next_button = document.getElementsByClassName('fc-next-button')[0]
+  // let next_image = document.createElement("img")
+  // next_image.setAttribute("src", "../public/main_view_arw2.png")
   // next_button.appendChild(next_image)
-
-  /*
-    reservations = 
-    '''
-    SELECT *,SUM(予約・時間帯・予約車種別リレーション.人数) FROM 予約・時間帯・予約車種別リレーション
-    LEFT JOIN 予約・時間帯リレーション ON 予約・時間帯・予約車種別リレーション.予約・時間帯ID = 予約・時間帯リレーション.ID
-    LEFT JOIN 時間帯テーブル ON 予約・時間帯リレーション.時間帯ID = 時間帯テーブル.ID
-    LEFT JOIN 予約テーブル ON 予約・時間帯リレーション.予約ID = 予約テーブル.ID
-    GROUP BY 
-    WHERE 
-    '''
-  */
 
   return(
     <>
@@ -161,28 +139,11 @@ const Calendar = () => {
         locales={allLocales}
         locale="ja"
         timeZone='Asia/Tokyo'
-        // initialView="dayGridMonth"
-        // droppable={true}
-        // editable={true}
-        // selectable={true}
-        // selectMinDistance={1}
-        // customButtons={{
-        //     new: {
-        //         text: 'new',
-        //         click: () => console.log('new event'),
-        //     },
-        // }}
         headerToolbar={{
-            end: 'prev,today,next', //timeGridWeek 
+            end: 'prev,today,next',
         }}
-        // footerToolbar={{
-        //     end: 'listDay,listWeek,listMonth dayGridMonth,timeGridWeek,timeGridDay prev,today,next',
-        // }}
         buttonText= {{
             today: '今月',
-            // listDay: '今日の予定',
-            // listWeek: '今週の予定',
-            // listMonth: '今月の予定',
         }}
         events = {reservations}
         eventClick={handleEventClick}
@@ -190,17 +151,6 @@ const Calendar = () => {
           (event.dayNumberText = event.dayNumberText.replace("日", ""))
         }
       /><br/>
-      {/* <div>
-        <div className="bg-green">
-          空きあり
-        </div>
-        <div className="bg-red">
-          満員
-        </div>
-        <div className="bg-gray">
-          休業
-        </div>
-      </div> */}
       <Container>
         <Form>
           <Form.Label className="mt-3 mb-2">
